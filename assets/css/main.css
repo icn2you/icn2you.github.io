@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /***********************************************************************
 FSWD:  Christopher B. Zenner
-Date:  06/13/2020
-File:  main.scss -> style.css
+Date:  06/14/2020
+File:  main.scss -> main.css
 Ver.:  0.1.0 20200614
 
 This SCSS is where it all comes together!
@@ -577,7 +577,7 @@ form .btn-outline-reset:active, form .btn-outline-reset:focus, form .btn-outline
 /***********************************************************************
 FSWD:  Christopher B. Zenner
 Date:  06/13/2020
-File:  style.mobile.scss -> style.css
+File:  style.mobile.scss -> style.mobile.css
 Ver.:  0.1.0 20200613
 
 This SCSS specifies the layout and style for the mobile version of my developer portfolio.
@@ -590,7 +590,7 @@ This SCSS specifies the layout and style for the mobile version of my developer 
   header {
     margin-bottom: 6rem;
   }
-  header #intro-container #navbar {
+  header #intro-container #nav-bar {
     margin-bottom: -2rem !important;
   }
   header #intro-container nav ul {
