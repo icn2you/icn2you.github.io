@@ -1,0 +1,363 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  04/07/2020
+File:  style.scss -> style.css
+Ver.:  0.1.0 20200407
+       0.2.0 20200409
+       0.3.0 20200413
+       0.4.0 20200517
+       0.5.0 20200613
+
+This SCSS specifies the layout and style for my developer portfolio.
+***********************************************************************/
+@use '../components/debug-borders' as db;
+@use '../components/freepik-classic-blues-palette' as fcbp;
+@use '../components/pantone-ponder-palette' as ppp;
+@use '../components/pantone-snorkel-palette' as psp;
+@use '../components/portfolio-fonts' as fonts;
+@use '../components/css-tricks-fluid-type' as ctft;
+@use '../components/razor-edge-container' as rec;
+@use '../components/hover-sliders' as hs;
+@use '../components/hover-images' as hi;
+@use '../components/rounded-bottom-borders' as rbb;
+
+/***********************************************************************
+ Global Elements
+***********************************************************************/
+$max-font: 18px;
+$max-width: 1280px;
+$min-font: 15px;
+$min-width: 320px;
+$almost-black: #060909;
+$seriously-gray: #4E595F;
+$slightly-gray: #EEE;
+
+html {
+  @include ctft.fluid-type($min-width, $max-width, $min-font, $max-font);
+}
+
+body {
+  background-color: white;
+  color: ppp.$monument;
+  font-family: fonts.$sans-serif-font-stack;
+  line-height: 1.5em;
+}
+
+/***********************************************************************
+ Header Elements
+***********************************************************************/
+header {
+  margin-bottom: 15rem;
+}
+
+#intro-container {
+  @include rec.razor-edge(psp.$classic-blue, 2rem, 3rem, top right, -7deg);
+}
+
+/***********************************************************************
+ Navigation Elements
+***********************************************************************/
+nav { 
+  ul {
+    font-size: 1.5rem;
+    font-weight: 300;
+    list-style-type: none;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    padding: 0;
+
+    li {
+      display: inline-block;
+    
+      a {
+        color: inherit;
+        display: inherit;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+            
+        &:active, &:focus, &:hover {
+          color: white;
+          text-decoration: inherit;
+        }
+
+        @include hs.hover-sliders(psp.$coralessence);
+      }
+    }
+  }
+}
+
+/***********************************************************************
+ Main Content Elements
+***********************************************************************/
+// About
+.name {
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1.25em;
+  margin-bottom: 3rem;
+}
+
+.pers-stmt {
+  color: inherit;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.25em;
+}
+
+.title {
+  font-family: 'Inconsolata', monospace;
+}
+
+.portrait {
+  img {
+    border: 10px solid fcbp.$darkest-classic-blue;
+    border-radius: 100%;
+    width: 360px;
+  }
+}
+
+h1 {
+  color: psp.$pirate-black;
+
+  @include rbb.rounded-bottom-border($slightly-gray, 2px);
+
+  #contact-form &:after {
+    border-top: 2px solid rgba(209, 220, 234, 0.5);
+    border-bottom: 2px solid rgba(209, 220, 234, 0.5);
+  }
+}
+
+// Portfolio
+#dev-projs-container {
+  margin-bottom: 15rem;
+}
+
+figure {
+  @include hi.hover-images;
+
+  &:active, &:focus, &:hover {
+    figcaption {
+      color: $almost-black;
+      font-weight: 600;
+    }
+  }
+}
+
+.langs, .techs {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.github-repo {
+  font-size: 0.75rem;
+  text-align: center;
+
+  .fab, .fas {
+    font-size: 0.875rem;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:active, &:focus, &:hover {
+      color: $almost-black;
+      // font-weight: 600;
+    }
+  }
+}
+
+// Contact
+#contact-form {
+  // NOTE: At some unspecified point, I may convert the footer container
+  //       into a razor-edge container; thus, I'm leaving the config
+  //       intact. At this point, it's invisible. (04/11/2020)
+  margin-bottom: 0;
+
+  @include rec.razor-edge(psp.$cashmere-blue, 2rem, 3rem, bottom left, -7deg, top);
+  @include rec.razor-edge(psp.$cashmere-blue, 2rem, 3rem, top right, -7deg);
+}
+
+form {
+  label {
+    color: psp.$pirate-black;
+    font-weight: 700;
+  }
+
+  .form-control {
+    border-color: ppp.$monument;
+
+    &:active, &:focus, &:hover {
+      border-color: psp.$classic-blue;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(15, 76, 129, 1);
+    }
+
+    &::placeholder {
+      color: #eee;
+    }
+  }
+
+  .btn {
+    // NOTE: The `border-radius` setting is **not** a mistake. It is set
+    //       so to ensure the buttons always have a consistent pill
+    //       shape. Thanks to Chad Ostrowski for [this idea][pill-btn-url].
+    //
+    // [pill-btn-url]: https://bits.theorem.co/css-pro-tips-responsive-font-sizes-and-when-to-use-which-units/ 
+    border-radius: 1000px;
+    margin: 0 0.3125rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .btn-outline-submit {
+    border-color: psp.$classic-blue;
+    color: psp.$classic-blue;
+  
+    &:active, &:focus, &:hover {
+      background-color: psp.$classic-blue;
+      color: white;
+    }  
+  }
+
+  .btn-outline-reset {
+    border-color: psp.$coralessence;
+    color: psp.$coralessence;
+  
+    &:active, &:focus, &:hover {
+      background-color: psp.$coralessence;
+      color: white;
+    }  
+  }
+}
+
+/***********************************************************************
+ Footer Elements
+***********************************************************************/
+#contact-info-container {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:active, a:focus, a:hover {
+    color: white;
+    text-decoration: inherit;
+  }
+
+  #biosketch {
+    h2 {
+      color: psp.$jasmine-green;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-top: 2rem;
+
+      // NOTE: It was nice while it lasted, but good design demands
+      // scrutiny! (04/13/2020)
+      // @include rbb.rounded-bottom-border($seriously-gray, 2px);
+    }
+
+    p {
+      margin-bottom: 1em;
+      text-align: justify;
+    }
+
+    /* NOTE: If I decide to return my résumé to its original location //       in the future, I'll reimplement this styling. 
+    //       (06/13/2020)
+    #resume {
+      margin-bottom: 3em;
+
+      .fa-file-pdf {
+        margin-right: 0.25em;
+      }
+    } */
+  }
+
+  #inspirational-quote {
+    // Thanks to [Jake Rocheleau][quote-url] and [Harm Putman][codepen-url]
+    // for this lovely `blockquote` style.
+    //
+    // [quote-url]: https://1stwebdesigner.com/css-snippets-blockquotes/
+    // [codepen-url]: https://codepen.io/harmputman/pen/IpAnb
+    blockquote {
+      border-color: $almost-black;
+      border-style: solid;
+      border-width: 2px 0;
+      display: block;
+      margin: 1.5em 0;
+      padding: 1.5em 0 0.5em;
+      position: relative;
+
+      &:before {
+        background: psp.$pirate-black;
+        color: $almost-black;
+        content: '\201C';
+        font: 700 4em/0.9em 'Playfair Display SC', serif;
+        left: 50%;
+        height: 2rem;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 3rem;
+      }
+
+      &:after {
+        color: $almost-black;
+        content: '\2014\2002' attr(cite);
+        display: block;
+        font-size: 0.875em;
+        font-weight: 700;
+        text-align: right;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  #social-media-group {   
+    .social-media {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2rem 0.5em;
+      text-transform: uppercase;
+
+      /* NOTE: If I decide to style my biosketch links differently in
+      //       the future, I'll reimplement this styling. (04/13/2020)
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:active, a:focus, a:hover {
+        color: white;
+        text-decoration: inherit;
+      }
+      */
+    }
+
+    .footnote {
+      margin-left: 1.5em;
+    }
+  }
+  
+  .fab, .fas {
+    color: psp.$jasmine-green;
+    display: inline-block;
+    margin-right: 0.5em;
+  }
+
+  // See note above.
+  @include rec.razor-edge(psp.$pirate-black, 2rem, 3rem, bottom left, -7deg, top);
+}
+
+#copyright {
+  background-color: $almost-black;
+  height: 10vh;
+  padding-top: 3vh;
+  width: 100%;
+}

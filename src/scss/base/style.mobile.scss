@@ -1,0 +1,61 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  06/13/2020
+File:  style.mobile.scss -> style.css
+Ver.:  0.1.0 20200613
+
+This SCSS specifies the layout and style for the mobile version of my developer portfolio.
+***********************************************************************/
+
+/***********************************************************************
+ Media Queries
+***********************************************************************/
+@media screen and (max-width: 375px) {
+  /*------------------------- Header Tweaks --------------------------*/
+  header {
+    margin-bottom: 6rem;
+
+    #intro-container {
+      #navbar {
+        margin-bottom: -2rem !important;
+      }
+
+      nav {
+        ul {
+          font-size: 1.4rem;
+          li {
+            a {
+              margin-left: 0.25em;
+              margin-right: 0.25em;
+            }
+          }
+        }
+      }
+
+      #intro {
+        .name {
+          font-size: 3.25rem;
+
+          span {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  /*---------------------- Main Content Tweaks -----------------------*/
+  #dev-projs-container {
+    margin-bottom: 6rem;
+  }
+
+  /*------------------------- Footer Tweaks --------------------------*/
+  footer {
+    #social-media-group {
+      .footnote {
+        margin-left: 0 !important;
+        text-align: center;
+      }
+    }
+  }
+}

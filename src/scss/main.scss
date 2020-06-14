@@ -1,0 +1,21 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  06/13/2020
+File:  main.scss -> style.css
+Ver.:  0.1.0 20200614
+
+This SCSS is where it all comes together!
+***********************************************************************/
+
+@import 'components/css-tricks-fluid-type';
+@import 'components/debug-borders';
+@import 'components/freepik-classic-blues-palette';
+@import 'components/hover-images';
+@import 'components/hover-sliders';
+@import 'components/pantone-ponder-palette';
+@import 'components/pantone-snorkel-palette';
+@import 'components/portfolio-fonts';
+@import 'components/razor-edge-container';
+@import 'components/rounded-bottom-borders';
+@import 'base/style';
+@import 'base/style.mobile';
