@@ -28,9 +28,6 @@ $max-font: 18px;
 $max-width: 1280px;
 $min-font: 15px;
 $min-width: 320px;
-$almost-black: #060909;
-$seriously-gray: #4E595F;
-$slightly-gray: #EEE;
 
 html {
   @include ctft.fluid-type($min-width, $max-width, $min-font, $max-font);
@@ -124,11 +121,6 @@ h1 {
   color: psp.$pirate-black;
 
   @include rbb.rounded-bottom-border($slightly-gray, 2px);
-
-  #contact-form &:after {
-    border-top: 2px solid rgba(209, 220, 234, 0.5);
-    border-bottom: 2px solid rgba(209, 220, 234, 0.5);
-  }
 }
 
 // Portfolio
