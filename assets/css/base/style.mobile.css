@@ -1,7 +1,7 @@
 /***********************************************************************
 FSWD:  Christopher B. Zenner
 Date:  06/13/2020
-File:  style.mobile.scss -> style.mobile.css
+File:  style.mobile.scss -> style.css
 Ver.:  0.1.0 20200613
 
 This SCSS specifies the layout and style for the mobile version of my developer portfolio.
@@ -14,7 +14,7 @@ This SCSS specifies the layout and style for the mobile version of my developer 
   header {
     margin-bottom: 6rem;
   }
-  header #intro-container #nav-bar {
+  header #intro-container #navbar {
     margin-bottom: -2rem !important;
   }
   header #intro-container nav ul {
